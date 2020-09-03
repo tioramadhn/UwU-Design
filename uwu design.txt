@@ -3,3 +3,5 @@ UwU Design
 -Timeline
 -portfolio
 -contact
+-copyright
+-sosmed
