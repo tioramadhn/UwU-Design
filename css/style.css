@@ -1,0 +1,196 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid black; */
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    overflow-x: hidden;
+}
+.container{
+    width: 80%;
+    margin: auto;
+}
+
+.nav{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 2fr ;
+    animation-name: fade;
+    animation-duration: .3s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+
+}
+.nav-brand{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: salmon;
+    transition: .3s;
+}
+.nav-brand:hover span{
+    text-shadow: 0px 0px 5px rgba(211, 43, 43, 0.5)
+}
+.darkmode{
+    background-color: salmon;
+    /* height: 20px;
+    width: 20px; */
+    cursor: pointer;
+}
+.nav-links{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
+    gap: 5px;
+}
+
+.link{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    position: relative;
+    cursor: pointer;
+    font-weight: 200;
+    font-size: 0.9em;
+    /* background-color: salmon */
+}
+
+.link::before{
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 2px;
+    background-color: salmon;
+    bottom: -1px;
+    transition:  .3s;
+}
+
+.link:hover.link::before{
+    width: 50px;
+}
+/* Hamburger */
+.menu{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+.burger{
+    position: relative;
+    width: 25px;
+    height: 2px;
+    background-color: salmon;
+    display: block;
+    border-radius: 3px;
+    transition: all .3s;
+
+}
+.burger::before{
+    position: absolute;
+    content: '';
+    width: 25px;
+    height: 2px;
+    background-color: salmon;
+    top: -8px;
+    border-radius: 3px;
+    transition: all .3s;
+
+
+}
+.burger::after{
+    position: absolute;
+    content: '';
+    width: 25px;
+    height: 2px;
+    background-color: salmon;
+    bottom: -8px;
+    border-radius: 3px;
+    transition: all .3s;
+
+}
+
+/* animasi menu */
+.open.burger{
+    background: transparent;
+    left: 0;
+}
+.open.burger::before{
+    transform: rotate(45deg);
+    top: 0;
+    background-color: white;
+}
+.open.burger::after{
+    transform: rotate(-45deg);
+    bottom: 0;
+    background-color: white;
+
+}
+
+
+/* responsip */
+@media screen and (max-width:804px){
+    .nav{
+        display: flex;
+        justify-content: space-around;
+    }
+    .menu{
+        display: grid;
+    }
+    .nav-links{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top:50px ;
+        background-color: salmon;
+        position: absolute;
+        z-index: -1;
+        width: 30%;
+        height: 100vh;
+        top: 0;
+        right: 0;
+        transform: translate(0,0);
+        transition: all .6s;
+        clip-path: circle(0px at 100% 0px);
+    }
+    .link{
+        color: white;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    .link::before{
+        background-color: white;
+        height: 100%;
+        width: 0px;
+        right:  0;
+        border-radius:0px ;
+    }
+    .link:hover.link::before{
+        width: 5px;
+    }
+    .slide.nav-links{
+        transform: translate(0,0);
+        clip-path: circle(1000px at 50px 50px);
+
+    }
+}
+
+
+@keyframes fade{
+    0%{
+        transform:translateY(-100px);
+    }
+    50%{
+        transform: translateY(20px);
+    }
+    80%{
+        transform: translateY(-30px);
+    }
+    100%{
+        transform: translateY(0) ;
+    }
+}
