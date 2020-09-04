@@ -1,2 +1,2 @@
 # UwU-Design
-Website Portfolio 
+Navbar uwu design + Responsive navbar with side bar
